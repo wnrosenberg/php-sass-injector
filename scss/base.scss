@@ -1,0 +1,101 @@
+
+
+$themeDarkHeader: $accentColor1;
+$themeDarkBg: $backgroundColor;
+$themeDarkFg: darken(desaturate($themeDarkHeader, 20%), 10%);
+$themeDarkLink: lighten($themeDarkHeader, 10%);
+
+$themeLightHeader: $themeDarkBg;
+$themeLightBg: lighten($themeDarkHeader, 26%);
+$themeLightFg: desaturate($themeDarkBg,20%);
+$themeLightLink: desaturate($themeDarkBg,20%);
+
+
+
+a { font-weight: 500; font-style: italic }
+#features, #topics {
+  margin-top: 20px;
+}
+#features {
+  .features {
+    @media(min-width:768px){
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    .card { 
+      height: calc(100% - 20px);
+      margin-bottom: 20px;
+    }
+    .card-title {
+      margin-bottom: 0;
+      font-weight: 700;
+      color: $themeLightHeader;
+    }
+  }
+}
+#topics {
+  .row { margin-top: 15px; margin-bottom: 15px;}
+  img { border-radius: 10px; }
+  
+  @media(min-width:768px) {
+    >:nth-child(2n)>:first-child { order: 1; }
+    >:nth-child(2n+1) { order: 2; }
+    img { width: 270px; height: 170px; }
+  }
+  @media(min-width:1200px) {
+    img { width: 340px; height: 180px; }
+  }
+  @media(max-width:767px) {
+    img { width: 200px; height: 200px; border-radius: 50%; }
+    & > :nth-child(n) {
+      text-align:center;
+      max-width: 420px;
+      margin: 0 auto 30px;
+      :first-child { 
+        order: 2;
+        margin-bottom: 5px;
+      }
+    } 
+  }
+  .topic p { margin-bottom: 5px; }
+}
+.calculator {
+  .input-group {
+    margin-bottom: 10px;
+  }
+}
+
+.row.intro {
+  text-align:center;
+  p { max-width: 600px; margin: 0 auto 10px; }
+}
+
+.fluid-container {
+  padding: 10px 0;
+  &.dark {
+    & > * { color: $themeDarkFg; }
+    background: $themeDarkBg;
+    h1,h2,h3,h4,h5,h6 {
+      color: $themeDarkHeader;
+    }
+    a {
+      color: $themeDarkLink;
+      &:hover {
+        color: darken($themeDarkLink, 10%);
+      }
+    }
+  }
+  &.light {
+    & > * { color: $themeLightFg; }
+    background: $themeLightBg;
+    h1,h2,h3,h4,h5,h6 {
+      color: $themeLightHeader;
+    }
+    a {
+      color: $themeLightLink;
+      &:hover {
+        color: darken($themeLightLink, 10%);
+      }
+    }
+  }
+}
